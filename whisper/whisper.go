@@ -7,5 +7,4 @@ import (
 )
 
 func sendInstruction() {
-  Post
 }

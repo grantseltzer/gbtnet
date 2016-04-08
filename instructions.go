@@ -34,7 +34,7 @@ func WriteInst(SourceIp, TargetIp, InstructionType, Specification string) ([]byt
   return json.Marshal(p)
 }
 
-func ReadInstruction(slice []byte) (Payload) {
+func ReadInst(slice []byte) (Payload) {
   var payload Payload
   err := json.Unmarshal(slice, &payload)
 

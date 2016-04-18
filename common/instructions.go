@@ -3,17 +3,18 @@ package common
 import (
   "encoding/json"
 )
+
 type Payload struct {
   Instructions Instruction
 }
 
 type Instruction struct {
-  Url             Urls
+  IP             IPS
   InstructionType InstructionTypes
   Specification   Specifications
 }
 
-type Urls map[string]string
+type IPS map[string]string
 type InstructionTypes map[string]string
 type Specifications map[string]string
 

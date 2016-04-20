@@ -9,6 +9,7 @@ import (
 type ipAddress struct {
   ip string
 }
+
 // Add ip address to document
 func newIpHandler(w http.ResponseWriter, r *http.Request) {
     decoder := json.NewDecoder(r.Body)

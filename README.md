@@ -1,3 +1,3 @@
-A proof of concept of a concurrent blockchain-esque botnet written in Go using a microservice architecture.
+A proof of concept of a concurrent blockchain-esque botnet written in Go.
 
 More documentation to come...

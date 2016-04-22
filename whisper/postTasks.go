@@ -13,6 +13,7 @@ type Ip struct {
   insertionTime time.Time
 }
 
+// MOVE TO KEEPER, the post request that this function returns can be added to a queue for whisper to pick up off of to execute
 func postIP(ip string) (*http.Request) {
     insertTime := time.Now()
     newIp := &Ip{ip, insertTime}

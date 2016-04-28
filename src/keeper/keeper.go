@@ -1,7 +1,8 @@
-package main
+package keeper
 
 import (
   "fmt"
+  "common"
 )
 
 /*******************************************************************************
@@ -10,15 +11,6 @@ import (
   in the local node.
 *******************************************************************************/
 
-func main() {
-
-  //Testing encrypt files
-  originalString := "THIS IS A TEST ARGHHHHh!"
-  fmt.Println(originalString)
-
-  encryptedString := Encrypt(originalString, "1234567891234567")
-  fmt.Println(encryptedString)
-
-  decryptedString := Decrypt(encryptedString, "1234567891234567")
-  fmt.Println(decryptedString)
+func StartUp() {
+// Start keeper microservice
 }

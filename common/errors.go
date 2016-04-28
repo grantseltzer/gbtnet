@@ -1,3 +1,0 @@
-package common
-
-func fatalError

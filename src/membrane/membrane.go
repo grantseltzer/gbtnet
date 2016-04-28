@@ -1,8 +1,4 @@
-/**
-  REST API for receiving instructions
-**/
-
-package main
+package membrane
 
 import (
   "fmt"
@@ -10,7 +6,7 @@ import (
   "encoding/json"
 )
 
-func serveRest(w http.ResponseWriter, r *http.Request) {
+func ServeRest(w http.ResponseWriter, r *http.Request) {
 	response, err := getJsonResponse()
 	if err != nil {
 		panic(err)

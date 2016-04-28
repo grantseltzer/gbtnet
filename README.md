@@ -1,6 +1,7 @@
 # Gitaxis 
-* ###### A proof of concept of a concurrent and decentralized botnet written in Go.
-* ###### Each Gitaxis node consists of 3 microservices: Keeper, Membrane, and Whisper.
+
+###### - A proof of concept of a concurrent and decentralized botnet written in Go.
+###### - Each Gitaxis node consists of 3 microservices: Keeper, Membrane, and Whisper.
 
 A user of an instance of the Gitaxis botnet would be able to log onto any of the nodes. There's not centralized 'master' of slaves. In order to have any power over the botnet, the only necessity is for the node to query other nodes on the network before validating the instruction as trusted.
 

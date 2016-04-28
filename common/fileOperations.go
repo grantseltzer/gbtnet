@@ -3,6 +3,7 @@ package common
 import (
   "os"
   "io/ioutil"
+  "strings"
 )
 
 type Document struct {
@@ -22,15 +23,28 @@ func Load(fileName string) (*Document, err) {
 }
 
 func AppendString(newLine string, fileName string) error {
-    file, err := os.OpenFile(fileName, os.O_APPEND|os.O_WRONLY, 0600)
-    if (err != nil) {
-      return err
-    }
+    file, openError := os.OpenFile(fileName, os.O_APPEND|os.O_WRONLY, 0600)
+    errorCheck(openError)
 
-    bytesWritten, err := file.Write([]byte(newLine + "\n"))
-    if err == nil && bytesWritten < len(ip) {
-    			err = io.ErrShortWrite
-		}
+    bytesWritten, writeError := file.Write([]byte(newLine + "\n"))
+    errorCheck(writeError)
 
     return err
+}
+
+func RemoveString(lineToRemove string, fileName string) error {
+  inputFromFile, _ := ioutil.ReadFile(fileName)
+  errorCheck(inputError)
+
+  allLines := strings.Split(string(inputFromFile), "\n")
+
+  for i, line := range allLines {
+    if strings.Contains(line, lineToRemove) {
+      allLines = append(allLines[:i], allLines[i+1:]...)
+    }
+  }
+
+  outputToFile := strings.Join(allLines, "\n")
+  writeError := ioutil.WriteFile(fileName, []byte(outputToFile), 0600)
+  return writeError
 }

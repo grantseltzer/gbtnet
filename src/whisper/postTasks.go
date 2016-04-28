@@ -1,41 +1,31 @@
-package whisper
+package main
 
 import (
   "net/http"
+  "fmt"
   "encoding/json"
   "bytes"
-  "fmt"
-  "time"
+  "common"
 )
 
-type Ip struct {
-  IpAddress string
-  insertionTime time.Time
-}
-
 // MOVE TO KEEPER, the post request that this function returns can be added to a queue for whisper to pick up off of to execute
-func postIP(ip string) (*http.Request) {
-    insertTime := time.Now()
-    newIp := &Ip{ip, insertTime}
+func postIP(ip string, targetIp string) (*http.Request) {
+    newIp := &common.Ip{ip}
     jsonNewIp, jsonError := json.Marshal(newIp)
     if (jsonError != nil) {
         panic(jsonError)
     }
-    postRequest, postError := http.NewRequest("POST", ip, bytes.NewBuffer(jsonNewIp))
+    postRequest, postError := http.NewRequest("POST", targetIp, bytes.NewBuffer(jsonNewIp))
     if (postError != nil) {
         panic(postError)
     }
     return postRequest
 }
 
-/***
-    postIP (and other post requests) should be part of a system that adds requests
-    to a queue in keeper that whisper will pick up to fullfil
 
-    postIP usage:
-
-    func main() {
-    ourRequest := postIP("http://localhost:8080/")
+// ^ USAGE:
+func main() {
+    ourRequest := postIP("grantisAwesome", "http://localhost:8481/newIp")
     fmt.Println(ourRequest)
     client := &http.Client{}
     resp, err := client.Do(ourRequest)
@@ -44,5 +34,3 @@ func postIP(ip string) (*http.Request) {
     }
     fmt.Println("Response: ", resp)
 }
-
-***/

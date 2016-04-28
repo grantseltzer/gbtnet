@@ -1,7 +1,7 @@
 package keeper
 
 import (
-  "fmt"
+  "net/http"
   "common"
 )
 
@@ -13,4 +13,10 @@ import (
 
 func StartUp() {
 // Start keeper microservice
+  mux := http.NewServeMux()
+  mux.HandleFunc("/newIp", NewIpHandler)
+  mux.HandleFunc("/removeIp/", RemoveIpHandler)
+
+  listenError := http.ListenAndServe(":8481", mux)
+  common.ListenErrorCheck(listenError, "keeper")
 }

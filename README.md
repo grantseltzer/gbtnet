@@ -12,6 +12,7 @@ A user of an instance of the Gitaxis botnet would be able to log onto any of the
    * Currently trying to design a way for node password protection (to decrypt stored data) to work.
    * We don't want users of the 'host' computer to be able access that information (i.e. ip's of other nodes)
    * It need's to be done in such a way that someone can't just decompile the code to find the password, and it needs to be easily changed
+   * One possible solution is the idea of accounts that are local to individual nodes, but having account information be stored on other nodes, but I'm not sure if that'd work
 
 ## Microservices:
 

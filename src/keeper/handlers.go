@@ -8,7 +8,6 @@ import (
 )
 
 func NewIpHandler(w http.ResponseWriter, r *http.Request) {
-    fmt.Println("minor success\n\n\n")
     decoder := json.NewDecoder(r.Body)
     var newIp common.Ip
 

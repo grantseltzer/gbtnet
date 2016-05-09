@@ -5,6 +5,7 @@ import (
   "os"
   "io/ioutil"
   "strings"
+  "bufio"
 )
 
 func AppendString(newLine string, fileName string) {
@@ -30,4 +31,15 @@ func RemoveString(lineToRemove string, fileName string) {
   outputToFile := strings.Join(allLines, "\n")
   writeError := ioutil.WriteFile(fileName, []byte(outputToFile), 0600)
   ErrorCheck(writeError)
+}
+
+func ReadFirstLine(fileName string) string {
+  infile, inError := os.Open(fileName)
+  ErrorCheck(inError)
+  defer infile.Close()
+
+  scanner := bufio.NewScanner(infile)
+  scanner.Scan()
+  text := scanner.Text()
+  return text
 }

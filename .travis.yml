@@ -1,8 +1,6 @@
 language: go
 go:
   - tip
-go_import_path:
-
 script:
   - go get github.com/hasicorp/membrane
   - go get golang.org/x/crypto/bcrypt

@@ -1,0 +1,8 @@
+language: go
+go:
+  - 1.5.3
+script:
+  - go get github.com/hasicorp/membrane
+  - go get golang.org/x/crypto/bcrypt
+  - go build Gitaxis
+  - ./Gitaxis

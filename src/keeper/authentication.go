@@ -3,6 +3,7 @@ package keeper
 import (
   "fmt"
   "golang.org/x/crypto/bcrypt"
+  "os"
   "common"
   "math/rand"
   "time"
@@ -23,7 +24,6 @@ func Authenticate() {
   }
 }
 
-//TODO
 func CreateKey() {
   fmt.Println("[*] Enter new key:")
   var keyInput string
@@ -31,13 +31,25 @@ func CreateKey() {
   generateKey(keyInput)
 }
 
-//TODO
+func DestroyKey() {
+  DeleteFile("Dungeon/.key.hkp")
+}
+
 func generateKey(password string) {
   hashKey, hashError := bcrypt.GenerateFromPassword([]byte(password), 11)
+  ErrorCheck(keyError)
 
+  keyFile, keyError := os.Create("Dungeon/.key.hkp")
+  ErrorCheck(keyError)
+  defer keyFile.Close()
+
+  keyFile.Write([]byte(hashKey))
+  keyFile.Sync()
 }
 
 //TODO
+// Query other nodes for decryption key, allow user
+// to enter instructions
 func granted() {
     fmt.Println("ACCESS GRANTED")
 }

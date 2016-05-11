@@ -45,6 +45,6 @@ func ReadFirstLine(fileName string) string {
 }
 
 func DeleteFile(filePath string) {
-  removeError = os.Remove(filePath)
+  removeError := os.Remove(filePath)
   ErrorCheck(removeError)
 }

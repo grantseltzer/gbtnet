@@ -5,8 +5,6 @@ import (
   "golang.org/x/crypto/bcrypt"
   "os"
   "common"
-  "math/rand"
-  "time"
 )
 
 func Authenticate() {
@@ -32,15 +30,15 @@ func CreateKey() {
 }
 
 func DestroyKey() {
-  DeleteFile("Dungeon/.key.hkp")
+  common.DeleteFile("Dungeon/.key.hkp")
 }
 
 func generateKey(password string) {
   hashKey, hashError := bcrypt.GenerateFromPassword([]byte(password), 11)
-  ErrorCheck(keyError)
+  common.ErrorCheck(hashError)
 
   keyFile, keyError := os.Create("Dungeon/.key.hkp")
-  ErrorCheck(keyError)
+  common.ErrorCheck(keyError)
   defer keyFile.Close()
 
   keyFile.Write([]byte(hashKey))

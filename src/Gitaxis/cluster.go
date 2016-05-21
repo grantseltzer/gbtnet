@@ -6,6 +6,10 @@ import (
   "github.com/hashicorp/memberlist"
 )
 
+func createCluster() Memberlist {
+
+}
+
 // IP Address should be packaged with node on distribution
 func joinCluster(ip string) Memberlist {
   memberList, joinError := list.Join(ip)

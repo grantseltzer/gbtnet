@@ -7,7 +7,7 @@ import (
 )
 
 func createCluster() Memberlist {
-
+  
 }
 
 // IP Address should be packaged with node on distribution

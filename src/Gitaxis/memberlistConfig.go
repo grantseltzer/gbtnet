@@ -1,10 +1,9 @@
 package main
 
 import (
-  "fmt"
   "github.com/hashicorp/memberlist"
-  "common"
   "encoding/json"
+  "common"
 )
 /*******************************************************************************
   memberlist.config will be a formatted file that stores information about the
@@ -15,11 +14,14 @@ import (
 *******************************************************************************/
 
 /** Marshall passed Config into JSON, write it to a file **/
-func newConfigFile(conf Config) {
+func newConfigFile(conf memberlist.Config) {
+  marshalledConfig, marshallError := json.Marshal(conf)
+  common.ErrorCheck(marshallError)
+  common.OverwriteFile("dungeon/memberlist.config", marshalledConfig)
 
 }
 
-/** Read memberlist.config, return it as a Config struct **/
-func readConfigFile() Config {
-
-}
+// /** Read memberlist.config, return it as a Config struct **/
+// func readConfigFile() memberlist.Config {
+//
+// }

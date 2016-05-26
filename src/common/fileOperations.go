@@ -44,6 +44,16 @@ func ReadFirstLine(fileName string) string {
   return text
 }
 
+func OverwriteFile(filename string, content []byte) {
+  newFile, createError := os.Create(filename)
+  ErrorCheck(createError)
+  defer newFile.Close()
+
+  bytesWritten, writeError := newFile.Write(content)
+  ErrorCheck(writeError)
+  fmt.Println(bytesWritten)
+}
+
 func DeleteFile(filePath string) {
   removeError := os.Remove(filePath)
   ErrorCheck(removeError)

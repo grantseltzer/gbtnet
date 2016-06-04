@@ -13,12 +13,16 @@ import (
   known ips on the botnet incase a file
 *******************************************************************************/
 
+type remnant struct {
+  conf   memberlist.Config
+  ips    []string
+}
+
 /** Marshall passed Config into JSON, write it to a file **/
-func newConfigFile(conf memberlist.Config) {
+func newRemnant(conf memberlist.Config, r remnant) {
   marshalledConfig, marshallError := json.Marshal(conf)
   common.ErrorCheck(marshallError)
   common.OverwriteFile("dungeon/memberlist.config", marshalledConfig)
-
 }
 
 // /** Read memberlist.config, return it as a Config struct **/

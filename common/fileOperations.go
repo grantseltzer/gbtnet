@@ -45,7 +45,9 @@ func ReadFirstLine(fileName string) string {
 }
 
 func OverwriteFile(filename string, content []byte) {
+  fmt.Println("Test 1")
   newFile, createError := os.Create(filename)
+  fmt.Println("Test 2")
   ErrorCheck(createError)
   defer newFile.Close()
 

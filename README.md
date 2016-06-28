@@ -1,5 +1,5 @@
 # Gitaxis
-
+[![forthebadge](http://forthebadge.com/images/badges/contains-cat-gifs.svg)](http://forthebadge.com)
 **A proof of concept of a concurrent and distributed botnet written in Go.**
 
 **__This project just started development__**

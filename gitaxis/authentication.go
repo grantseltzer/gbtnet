@@ -9,7 +9,8 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func authenticate() {
+// Authenticate is for verifying the orchestrator of the botnet
+func Authenticate() {
 	fmt.Println("[*] Enter Key:")
 
 	var keyInput string

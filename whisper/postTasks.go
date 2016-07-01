@@ -10,7 +10,7 @@ package whisper
 //
 // // MOVE TO KEEPER, the post request that this function returns can be added to a queue for whisper to pick up off of to execute
 // func postIP(ip string, targetIp string) (*http.Request) {
-//     newIp := &common.Ip{ip}
+//     newIp := &common.IP{ip}
 //     jsonNewIp, jsonError := json.Marshal(newIp)
 //     if (jsonError != nil) {
 //         panic(jsonError)

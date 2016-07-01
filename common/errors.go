@@ -1,13 +1,15 @@
 package common
 
-import "fmt"
+import "logrus"
 
+// ErrorCheck checks errors
 func ErrorCheck(err error) {
-  if err != nil {
-    panic(err)
-  }
+	if err != nil {
+		logrus.Fatal(err)
+	}
 }
 
+// ListenErrorCheck is an error check for listening microservices
 func ListenErrorCheck(err error, projectName string) {
-  fmt.Println("Interuptted Listen and Serve:  ", projectName)
+	logrus.Fatal("Interuptted Listen and Serve:  ", projectName, err)
 }

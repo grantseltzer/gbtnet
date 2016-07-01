@@ -1,8 +1,0 @@
-language: go
-go:
-  - tip
-go_import_path: src
-script:
-  - go get github.com/hasicorp/memberlist
-  - go get golang.org/x/crypto/bcrypt
-  - go build Gitaxis

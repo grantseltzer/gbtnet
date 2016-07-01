@@ -1,9 +1,9 @@
 package main
 
 import (
-  // "common"
-  "fmt"
-  "github.com/hashicorp/memberlist"
+	"fmt"
+
+	"github.com/hashicorp/memberlist"
 )
 
 // func createCluster() memberlist.Memberlist {
@@ -21,7 +21,7 @@ import (
 // }
 
 func printMembership(list memberlist.Memberlist) {
-  for _, member := range list.Members() {
-    fmt.Printf("Member: %s %s\n", member.Name, member.Addr)
-  }
+	for _, member := range list.Members() {
+		fmt.Printf("Member: %s %s\n", member.Name, member.Addr)
+	}
 }

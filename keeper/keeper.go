@@ -1,8 +1,9 @@
 package keeper
 
 import (
-  "net/http"
-  "common"
+	"net/http"
+
+	"github.com/grantseltzer/Gitaxis/common"
 )
 
 /*******************************************************************************
@@ -11,12 +12,12 @@ import (
   in the local node.
 *******************************************************************************/
 
+// StartUp boots the keeper service
 func StartUp() {
-// Start keeper microservice
-  mux := http.NewServeMux()
-  mux.HandleFunc("/newIp", NewIpHandler)
-  mux.HandleFunc("/removeIp/", RemoveIpHandler)
+	mux := http.NewServeMux()
+	mux.HandleFunc("/newIp", newIPHandler)
+	mux.HandleFunc("/removeIp/", removeIPHandler)
 
-  listenError := http.ListenAndServe(":8481", mux)
-  common.ListenErrorCheck(listenError, "keeper")
+	listenError := http.ListenAndServe(":8481", mux)
+	common.ListenErrorCheck(listenError, "keeper")
 }

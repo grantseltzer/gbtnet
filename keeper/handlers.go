@@ -1,33 +1,35 @@
 package keeper
 
 import (
-  "net/http"
-  "encoding/json"
-  "common"
-  "fmt"
+	"encoding/json"
+	"fmt"
+	"net/http"
+
+	"github.com/grantseltzer/Gitaxis/common"
 )
 
-func NewIpHandler(w http.ResponseWriter, r *http.Request) {
-    decoder := json.NewDecoder(r.Body)
-    var newIp common.Ip
+func newIPHandler(w http.ResponseWriter, r *http.Request) {
+	decoder := json.NewDecoder(r.Body)
+	var newIP common.IP
 
-    decodeError := decoder.Decode(&newIp)
-    common.ErrorCheck(decodeError)
-    fmt.Println(newIp.IpAddress)
+	decodeError := decoder.Decode(&newIP)
+	common.ErrorCheck(decodeError)
+	fmt.Println(newIP.IPAddress)
 
-    common.AppendString(newIp.IpAddress,"ips.txt")
+	common.AppendString(newIP.IPAddress, "ips.txt")
 }
 
-func RemoveIpHandler(w http.ResponseWriter, r *http.Request) {
-  decoder := json.NewDecoder(r.Body)
-  var ipToRemove common.Ip
+func removeIPHandler(w http.ResponseWriter, r *http.Request) {
+	decoder := json.NewDecoder(r.Body)
+	var ipToRemove common.IP
 
-  decodeError := decoder.Decode(&ipToRemove)
-  common.ErrorCheck(decodeError)
+	decodeError := decoder.Decode(&ipToRemove)
+	common.ErrorCheck(decodeError)
 
-  common.RemoveString(ipToRemove.IpAddress, "keeper/ips.txt")
+	common.RemoveString(ipToRemove.IPAddress, "keeper/ips.txt")
 }
 
+// QueueInstructionHandler blah
 func QueueInstructionHandler(w http.ResponseWriter, r *http.Request) {
-  // add instruction to queue
+	// add instruction to queue
 }

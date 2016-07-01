@@ -1,0 +1,55 @@
+{
+	"ImportPath": "Gitaxis",
+	"GoVersion": "go1.5.4",
+	"Deps": [
+		{
+			"ImportPath": "github.com/armon/go-metrics",
+			"Rev": "fbf75676ee9c0a3a23eb0a4d9220a3612cfbd1ed"
+		},
+		{
+			"ImportPath": "github.com/grantseltzer/Gitaxis/common",
+			"Rev": "5ebd82cdd1466f29f5e38ec93650adcd2cdcbc6d"
+		},
+		{
+			"ImportPath": "github.com/grantseltzer/Gitaxis/gitaxis",
+			"Rev": "5ebd82cdd1466f29f5e38ec93650adcd2cdcbc6d"
+		},
+		{
+			"ImportPath": "github.com/grantseltzer/Gitaxis/keeper",
+			"Rev": "5ebd82cdd1466f29f5e38ec93650adcd2cdcbc6d"
+		},
+		{
+			"ImportPath": "github.com/hashicorp/errwrap",
+			"Rev": "7554cd9344cec97297fa6649b055a8c98c2a1e55"
+		},
+		{
+			"ImportPath": "github.com/hashicorp/go-msgpack/codec",
+			"Rev": "fa3f63826f7c23912c15263591e65d54d080b458"
+		},
+		{
+			"ImportPath": "github.com/hashicorp/go-multierror",
+			"Rev": "d30f09973e19c1dfcd120b2d9c4f168e68d6b5d5"
+		},
+		{
+			"ImportPath": "github.com/hashicorp/memberlist",
+			"Rev": "b2053e314b4a87e5f0d2d47aeafd3e03be13da90"
+		},
+		{
+			"ImportPath": "github.com/miekg/dns",
+			"Rev": "5d001d020961ae1c184f9f8152fdc73810481677"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/bcrypt",
+			"Rev": "811831de4c4dd03a0b8737233af3b36852386373"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/blowfish",
+			"Rev": "811831de4c4dd03a0b8737233af3b36852386373"
+		},
+		{
+			"ImportPath": "logrus",
+			"Comment": "v0.10.0-19-gf3cfb45",
+			"Rev": "f3cfb454f4c209e6668c95216c4744b8fddb2356"
+		}
+	]
+}

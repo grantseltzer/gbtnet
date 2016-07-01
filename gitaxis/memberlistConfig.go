@@ -1,10 +1,13 @@
-package main
+package gitaxis
 
 import (
-  "github.com/hashicorp/memberlist"
-  "encoding/json"
-  "common"
+	"encoding/json"
+
+	"github.com/grantseltzer/Gitaxis/common"
+
+	"github.com/hashicorp/memberlist"
 )
+
 /*******************************************************************************
   memberlist.config will be a formatted file that stores information about the
   botnet instances memberlist (a library provided by great folks at Hashicorp)
@@ -14,15 +17,15 @@ import (
 *******************************************************************************/
 
 type remnant struct {
-  conf   memberlist.Config
-  ips    []string
+	conf memberlist.Config
+	ips  []string
 }
 
 /** Marshall passed Config into JSON, write it to a file **/
 func newRemnant(conf memberlist.Config, r remnant) {
-  marshalledConfig, marshallError := json.Marshal(conf)
-  common.ErrorCheck(marshallError)
-  common.OverwriteFile("dungeon/memberlist.config", marshalledConfig)
+	marshalledConfig, marshallError := json.Marshal(conf)
+	common.ErrorCheck(marshallError)
+	common.OverwriteFile("dungeon/memberlist.config", marshalledConfig)
 }
 
 // /** Read memberlist.config, return it as a Config struct **/

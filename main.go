@@ -1,11 +1,9 @@
 package main
 
-import (
-	"github.com/grantseltzer/Gitaxis/keeper"
-)
+import "github.com/grantseltzer/Gitaxis/keeper"
 
 func main() {
-	Authenticate()
+	gitaxis.Authenticate()
 	keeper.StartUp()
 
 	/** TODO
